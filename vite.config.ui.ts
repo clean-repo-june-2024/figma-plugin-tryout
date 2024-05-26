@@ -3,12 +3,11 @@ import path from "node:path";
 import { viteSingleFile } from "vite-plugin-singlefile";
 import react from "@vitejs/plugin-react";
 import richSvg from "vite-plugin-react-rich-svg";
-import { vitePlugin as remix } from "@remix-run/dev";
 
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), richSvg(), viteSingleFile(), remix()],
+  plugins: [react(), richSvg(), viteSingleFile()],
   root: path.resolve("src/ui"),
   build: {
     minify: mode === "production",

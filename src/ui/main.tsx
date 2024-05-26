@@ -23,8 +23,8 @@ const routes = [
 ];
 
 const router = createMemoryRouter(routes, {
-  initialEntries: ["/", "/events/123"],
-  initialIndex: 1,
+  initialEntries: ["/", "/dashboard"],
+  initialIndex: 0,
 });
 
 async function bootstrap() {
