@@ -9,7 +9,7 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-import App from "./app";
+import { App, Dashboard } from "./pages";
 
 const routes = [
   {
@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "dashboard",
-    element: <div>Dashboard</div>,
+    element: <Dashboard />,
   }
 ];
 

@@ -1,0 +1,60 @@
+// https://jamesiv.es/blog/frontend/design/2023/08/01/syncing-figma-variables-with-github-actions-and-styledictionary
+// i took a simple example like the one in this article ⬆️
+
+// it will look like that
+
+{
+  "meta": {
+    "variables": {
+      "VariableID:2:41": {
+        "id": "VariableID:2:41",
+        "name": "Primary",
+        "variableCollectionId": "VariableCollectionId:2:15",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "2:0": "00A4EF",
+          "2:1": "107C10"
+        },
+        "remote": false
+      },
+      "VariableID:2:40": {
+        "id": "VariableID:2:40",
+        "name": "Secondary",
+        "valuesByMode": {
+          "2:0": "F25022",
+          "2:1": "3A3A3A"
+        },
+        "variableCollectionId": "VariableCollectionId:2:15",
+        "resolvedType": "COLOR"
+      },
+      "VariableID:2:39": {
+        "id": "VariableID:2:41",
+        "name": "Tertiary",
+        "valuesByMode": {
+          "2:0": "7FBA00"
+        },
+        "variableCollectionId": "VariableCollectionId:2:15",
+        "resolvedType": "COLOR"
+      }
+    },
+
+    "variableCollections": {
+      "VariableCollectionId:2:15": {
+        "id": "VariableCollectionId:2:15",
+        "name": "Brand Colours",
+        "modes": [
+          {
+            "id": "2:0",
+            "name": "Microsoft"
+          },
+          {
+            "id": "2:1",
+            "name": "Xbox"
+          }
+        ],
+        "defaultModeId": "2:0",
+        "remote": false
+      }
+    }
+  }
+}

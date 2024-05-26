@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { ModeToggle } from "./components/modeToggle";
-import { Button } from "./components/ui/button";
-import { Heading } from "./components/ui/typoghraphy";
+
 import {
   Card,
   CardDescription,
@@ -9,6 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/ui/components/ui/card";
+import { ModeToggle } from "../components/modeToggle";
+import { Button } from "../components/ui/button";
+import { Heading } from "../components/ui/typoghraphy";
 
 function App() {
   return (
