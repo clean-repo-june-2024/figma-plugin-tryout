@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+## Figma extension on tokens
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I still find the ecosystem around the Figma variable a bit clunky, so I decided to create this extension to help me with that. This extension will probably only target my pain point and I'm very uncertain about reaching a release point.
+However, I think I can learn from making such a project
 
-Currently, two official plugins are available:
+### As of now
+This extension is only a react app with shadcn and react-router (memory router) plugged in.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Next steps
 
-## Expanding the ESLint configuration
+here is my first screen but I'm not sure what I will build, but here are my paint points.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- I didn't find any plugin that helped with quickly visualizing the free tokens, the token studio is nice but it's not free.
+- I didn't find any plugin where you can give a CSS file, a JSON or a website and it proposes variable collections lists with visualizations before import.
+- There were some nice export plugins but since the first two points were harder I thought I would add them.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![first-screen](./img/first-screen.png)
