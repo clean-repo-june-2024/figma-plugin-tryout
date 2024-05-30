@@ -1,7 +1,7 @@
 import { initializeNetwork } from "@/common/network/init";
 import { NetworkMessages } from "@/common/network/messages";
 import { NetworkSide } from "@/common/network/sides";
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { ThemeProvider } from "./components/theme-provider";
@@ -10,15 +10,16 @@ import {
   createMemoryRouter,
 } from "react-router-dom";
 import { App, Dashboard } from "./pages";
+import Layout from "./layout";
 
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: <Layout><App /></Layout>
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element:  <Layout><Dashboard /></Layout>
   }
 ];
 
@@ -41,7 +42,7 @@ async function bootstrap() {
   root.render(
     <React.StrictMode>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <RouterProvider router={router} />
+          <RouterProvider router={router} />
       </ThemeProvider>
     </React.StrictMode>
   );

@@ -7,16 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/ui/components/ui/card";
-import { ModeToggle } from "../components/modeToggle";
 import { Button } from "../components/ui/button";
 import { Heading } from "../components/ui/typoghraphy";
 
 function App() {
   return (
-    <div>
-      <div className="flex px-1 justify-end">
-        <ModeToggle />
-      </div>
       <div className="bg-background px-8 py-16 flex flex-col gap-4 h-full">
         <Heading className="red-600" as="h1">
           Variableees
@@ -67,7 +62,6 @@ function App() {
           </Card>
         </div>
       </div>
-    </div>
   );
 }
 
