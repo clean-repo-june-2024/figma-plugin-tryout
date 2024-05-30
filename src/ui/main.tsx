@@ -1,7 +1,7 @@
 import { initializeNetwork } from "@/common/network/init";
 import { NetworkMessages } from "@/common/network/messages";
 import { NetworkSide } from "@/common/network/sides";
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { ThemeProvider } from "./components/theme-provider";
