@@ -4,6 +4,7 @@ import { PingMessage } from "@/common/network/messages/PingMessage";
 import { NetworkSide } from "@/common/network/sides";
 import * as Networker from "monorepo-networker";
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace NetworkMessages {
   export const registry = new Networker.MessageTypeRegistry();
 

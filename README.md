@@ -15,3 +15,5 @@ here is my first screen but I'm not sure what I will build, but here are my pain
 - There were some nice export plugins but since the first two points were harder I thought I would add them.
 
 ![first-screen](./img/first-screen.png)
+
+i used this template at first https://github.com/CoconutGoodie/figma-plugin-react-vite

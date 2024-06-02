@@ -9,16 +9,17 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-import App from "./app";
+import { App, Dashboard } from "./pages";
+import Layout from "./layout";
 
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: <Layout><App /></Layout>
   },
   {
     path: "dashboard",
-    element: <div>Dashboard</div>,
+    element:  <Layout><Dashboard /></Layout>
   }
 ];
 
@@ -41,7 +42,7 @@ async function bootstrap() {
   root.render(
     <React.StrictMode>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <RouterProvider router={router} />
+          <RouterProvider router={router} />
       </ThemeProvider>
     </React.StrictMode>
   );
