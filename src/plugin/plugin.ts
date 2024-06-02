@@ -2,6 +2,9 @@ import * as Networker from "monorepo-networker";
 import { initializeNetwork } from "@/common/network/init";
 import { NetworkSide } from "@/common/network/sides";
 import { NetworkMessages } from "@/common/network/messages";
+import importVar from "./importVariables";
+import exportToJSON from "./exportToJSON";
+import importCSSVariables from "./importCSSVariables";
 
 async function bootstrap() {
   initializeNetwork(NetworkSide.PLUGIN);
@@ -26,68 +29,42 @@ async function bootstrap() {
 
 }
 
-
-
-async function exportToJSON() {
-  // const collections = await figma.variables.getLocalVariableCollectionsAsync();
-  // console.log("collections", collections);
-  // const data:Record<string,Record<string,string | number | boolean | VariableAlias | RGB | RGBA>> = {}
-
-  // for await (const collection of collections) {
-  //   const variablesIds = collection.variableIds;
-  //   for await (const variableId of variablesIds) {
-  //     const variable = await figma.variables.getVariableByIdAsync(variableId);
-  //     console.log("variable", variable);
-
-  //     if(!variable) continue;
-  //     else {
-  //       if(!data[collection.name]) {
-  //         data[collection.name] = {
-  //           [variable.name]: variable.valuesByMode[collection.defaultModeId]
-  //         }
-  //       } else {
-  //         data[collection.name][variable.name] = variable.valuesByMode[collection.defaultModeId]
-  //       }
-  //     }
-  //   }
-  // }
-
-  const data = await figma.variables.getLocalVariablesAsync();
-  const collections = await figma.variables.getLocalVariableCollectionsAsync();
-  console.log("collections", collections);
-  console.log("data", data);
-  // console.log("data", JSON.stringify(data, null, 2))
-
-  // if(data.length){
-  //   const variable = await figma.variables.getVariableByIdAsync(data[0].id);
-  //   console.log("variable", JSON.stringify(variable, null, 2));
-  //   figma.ui.postMessage({ type: "EXPORT_RESULT", data: variable });
-  // }
-
-  for await (const collection of collections) {
-    const fetchCollection = await figma.variables.getVariableCollectionByIdAsync(collection.id);
-    const fetchCollectionVariables = fetchCollection?.variableIds ?? [];
-    for await (const variableId of fetchCollectionVariables) {
-      const fetchVariable = await figma.variables.getVariableByIdAsync(variableId);
-      const fetchVariableValues = fetchVariable?.valuesByMode;
-      figma.ui.postMessage({ type: "EXPORT_RESULT", data: {
-        collection: fetchCollection?.name,
-        modes: fetchCollection?.modes,
-        defaultMode: fetchCollection?.defaultModeId,
-        type: fetchVariable?.resolvedType,
-        name: fetchVariable?.name,
-        values: fetchVariableValues
-      } });
-    }
-  }
-  // figma.ui.postMessage({ type: "EXPORT_RESULT", data });
-}
-
 figma.ui.onmessage = async (e) => {
   console.log("code received message", e);
-  if(e.type === "EXPORT") {
+  if (e.type === "EXPORT") {
     await exportToJSON();
+  }
+
+  if (e.type === "IMPORT") {
+    await importVar()
+  }
+
+  if(e.type === "IMPORT_CSS_VARIABLES") {
+    console.log("here", e)
+    await importCSSVariables({
+      collectionName: e.collectionName,
+      textareaValue: e.textareaValue
+    })
   }
 };
 
+
 bootstrap();
+
+
+
+const collection = figma.variables.createVariableCollection("new-collection")
+collection.renameMode(collection.modes[0].modeId, "light")
+const colorVariable = figma.variables.createVariable("color-variable", collection, "COLOR")
+
+// rename our new variable and collection because naming is hard!
+colorVariable.name = "text-primary"
+collection.name = "semantic colors"
+
+const lightModeId = collection.modes[0].modeId
+const darkModeId = collection.addMode("dark")
+
+// Sets the color to #000 in light mode and #fff in dark mode
+colorVariable.setValueForMode(lightModeId, { r: 0, g: 0, b: 0 })
+colorVariable.setValueForMode(darkModeId, { r: 1, g: 1, b: 1 })
+
