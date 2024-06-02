@@ -17,7 +17,8 @@
     "build": "run-s build:*",
     "prebuild": "run-s types clean",
     "build:ui": "vite build -c ./vite.config.ui.ts",
-    "build:plugin": "vite build -c ./vite.config.plugin.ts"
+    "build:plugin": "vite build -c ./vite.config.plugin.ts",
+    "test": "vitest"
   },
   "dependencies": {
     "@figma/plugin-typings": "^1.93.0",
@@ -36,7 +37,9 @@
     "tailwindcss-animate": "^1.0.7",
     "vite-plugin-generate-file": "^0.1.1",
     "vite-plugin-react-rich-svg": "^1.1.1",
-    "vite-plugin-singlefile": "^2.0.1"
+    "vite-plugin-singlefile": "^2.0.1",
+    "vitest": "^1.6.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",

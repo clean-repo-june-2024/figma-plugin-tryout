@@ -9,7 +9,7 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-import { App, Dashboard } from "./pages";
+import { App, Dashboard, Import } from "./pages";
 import Layout from "./layout";
 
 const routes = [
@@ -18,8 +18,12 @@ const routes = [
     element: <Layout><App /></Layout>
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element:  <Layout><Dashboard /></Layout>
+  },
+  {
+    path: "/import",
+    element: <Layout><Import /></Layout>
   }
 ];
 

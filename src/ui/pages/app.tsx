@@ -41,9 +41,9 @@ function App() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button disabled variant="outline">
-                Not available yet 🏗️
-              </Button>
+              <Link to="/import">
+                <Button>Import</Button>
+              </Link>
             </CardFooter>
           </Card>
 
